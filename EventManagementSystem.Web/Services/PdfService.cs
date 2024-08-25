@@ -12,7 +12,7 @@ namespace EventManagementSystem.Web.Services
         {
             using (MemoryStream ms = new MemoryStream())
             {
-                Document document = new Document(PageSize.A4, 25, 25, 30, 30);
+                Document document = new Document(PageSize.Postcard, 25, 25, 30, 30);
                 PdfWriter writer = PdfWriter.GetInstance(document, ms);
 
                 document.Open();
