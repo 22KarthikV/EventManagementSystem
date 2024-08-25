@@ -95,3 +95,30 @@ Project Link: [https://github.com/yourusername/EventManagementSystem](https://gi
 - [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
 - [Bootstrap](https://getbootstrap.com)
 - [iTextSharp](https://github.com/itext/itextsharp)
+
+
+## Screenshots
+
+![image](https://github.com/user-attachments/assets/0f61f77e-afab-4580-853a-23177732508d)
+
+
+
+![image](https://github.com/user-attachments/assets/e40ce53c-9857-4dc6-ad41-1258fe820048)
+
+![image](https://github.com/user-attachments/assets/0d52403d-feb5-410c-a07c-c12cd1f491b1)
+![image](https://github.com/user-attachments/assets/e458f3a3-b9d8-4c2e-97c7-555fdd217e36)
+
+
+![image](https://github.com/user-attachments/assets/73752d46-d3b8-401a-92ac-77c8a6561e2d)
+
+
+![image](https://github.com/user-attachments/assets/85a190c5-4938-4416-8d5c-a49ef155dd81)
+![image](https://github.com/user-attachments/assets/2ff8b8ba-dca5-489a-ae20-ce8c01ed3935)
+![image](https://github.com/user-attachments/assets/36a94b70-e785-4185-9c55-80dc5ae6bed1)
+![image](https://github.com/user-attachments/assets/32c9b153-da0d-4245-9ec8-e2f058177d31)
+![image](https://github.com/user-attachments/assets/9e2c491f-9e46-4df7-a8e1-cdba31a46cc7)
+
+
+
+
+
