@@ -30,14 +30,33 @@ namespace EventManagementSystem.Web
             builder.Services.AddScoped<IEventRepository, EventRepository>();
             builder.Services.AddScoped<IRegistrationRepository, RegistrationRepository>();
             builder.Services.AddScoped<PdfService>();
+            builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
+            builder.Logging.AddConsole();
+            builder.Logging.AddDebug();
 
             var app = builder.Build();
 
-            // Ensure the database is created and seeded, and admin user is in Admin role
+            /*// Ensure the database is created and seeded, and admin user is in Admin role
             using (var scope = app.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
                 await EnsureDatabaseSetup(services);
+            }*/
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                try
+                {
+                    var context = services.GetRequiredService<EMDbContext>();
+                    context.Database.Migrate(); // This applies any pending migrations
+                    await EnsureDatabaseSetup(services); // This seeds initial data if needed
+                }
+                catch (Exception ex)
+                {
+                    var logger = services.GetRequiredService<ILogger<Program>>();
+                    logger.LogError(ex, "An error occurred while migrating or seeding the database.");
+                }
             }
 
             // Configure middleware

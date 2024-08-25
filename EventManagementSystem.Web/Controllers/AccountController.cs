@@ -108,7 +108,7 @@ namespace EventManagementSystem.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, EmailConfirmed=true };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -129,7 +129,7 @@ namespace EventManagementSystem.Web.Controllers
             return View();
         }
 
-        [HttpPost]
+        /*[HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
@@ -146,8 +146,42 @@ namespace EventManagementSystem.Web.Controllers
                 }
             }
             return View(model);
-        }
+        }*/
 
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                if (user != null)
+                {
+                    // Check if email is confirmed
+                    if (!await _userManager.IsEmailConfirmedAsync(user))
+                    {
+                        ModelState.AddModelError(string.Empty, "You must confirm your email before logging in.");
+                        return View(model);
+                    }
+
+                    var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, lockoutOnFailure: false);
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    if (result.RequiresTwoFactor)
+                    {
+                        // Handle two-factor authentication if implemented
+                        return RedirectToAction("LoginWith2fa");
+                    }
+                    if (result.IsLockedOut)
+                    {
+                        return RedirectToAction("Lockout");
+                    }
+                }
+                ModelState.AddModelError(string.Empty, "Invalid login attempt. Please check your email and password.");
+            }
+            return View(model);
+        }
         [HttpPost]
         public async Task<IActionResult> Logout()
         {

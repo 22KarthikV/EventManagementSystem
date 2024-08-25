@@ -27,14 +27,9 @@
                     {
                         <a asp-action="Cancel" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Cancel Registration</a>
                     }
-                </td>
-                <td>
-                    @if (item.Event.DateAndTime > DateTime.Now)
-                    {
-                        <a asp-action="Cancel" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Cancel Registration</a>
-                    }
                     <a asp-action="DownloadTicket" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Download Ticket</a>
                 </td>
+                
 
             </tr>
         }
