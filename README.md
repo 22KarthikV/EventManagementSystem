@@ -107,6 +107,7 @@ Project Link: [https://github.com/yourusername/EventManagementSystem](https://gi
 
 ![image](https://github.com/user-attachments/assets/0d52403d-feb5-410c-a07c-c12cd1f491b1)
 ![image](https://github.com/user-attachments/assets/e458f3a3-b9d8-4c2e-97c7-555fdd217e36)
+![image](https://github.com/user-attachments/assets/4d0e3b1c-1de2-42eb-860c-af5610d075b7)
 
 
 ![image](https://github.com/user-attachments/assets/73752d46-d3b8-401a-92ac-77c8a6561e2d)
