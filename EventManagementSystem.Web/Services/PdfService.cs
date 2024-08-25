@@ -1,6 +1,7 @@
 ﻿using EventManagementSystem.Core.Entities;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System;
 using System.IO;
 
 namespace EventManagementSystem.Web.Services
@@ -21,10 +22,10 @@ namespace EventManagementSystem.Web.Services
 
                 document.Add(new Paragraph("Event Ticket", titleFont));
                 document.Add(new Paragraph("\n"));
-                document.Add(new Paragraph($"Event: {registration.Event.Name}", normalFont));
-                document.Add(new Paragraph($"Date: {registration.Event.DateAndTime:g}", normalFont));
-                document.Add(new Paragraph($"Location: {registration.Event.Location}", normalFont));
-                document.Add(new Paragraph($"Attendee: {registration.User.UserName}", normalFont));
+                document.Add(new Paragraph($"Event: {registration.Event?.Name ?? "N/A"}", normalFont));
+                document.Add(new Paragraph($"Date: {registration.Event?.DateAndTime.ToString("g") ?? "N/A"}", normalFont));
+                document.Add(new Paragraph($"Location: {registration.Event?.Location ?? "N/A"}", normalFont));
+                document.Add(new Paragraph($"Attendee: {registration.User?.UserName ?? "N/A"}", normalFont));
                 document.Add(new Paragraph($"Registration ID: {registration.Id}", normalFont));
 
                 document.Close();

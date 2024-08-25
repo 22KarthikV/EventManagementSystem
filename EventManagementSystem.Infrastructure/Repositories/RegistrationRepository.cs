@@ -29,6 +29,7 @@ namespace EventManagementSystem.Infrastructure.Repositories
         {
             return await _context.Registrations
                 .Include(r => r.Event)
+                .Include(r => r.User)
                 .FirstOrDefaultAsync(r => r.Id == id);
         }
 
