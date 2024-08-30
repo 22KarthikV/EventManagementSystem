@@ -1,5 +1,7 @@
 # Event Management System
 
+[Try my Event Management System ](https://eventmanagementsystemweb.azurewebsites.net/)
+
 ## Description
 
 The Event Management System is a web application built with ASP.NET Core that allows users to create, manage, and register for events. It provides a platform for event organizers to list their events and for attendees to browse and sign up for events that interest them.
